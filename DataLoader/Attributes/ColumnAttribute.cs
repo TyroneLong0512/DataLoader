@@ -1,5 +1,4 @@
 ﻿using DataLoader.Interfaces;
-using System.Drawing;
 
 namespace DataLoader.Attributes
 {
@@ -9,11 +8,11 @@ namespace DataLoader.Attributes
     public class ColumnAttribute : Attribute, IAttribute
     {
         #region Properties
-        public int StringSize { get; set; }
+        public int? StringSize { get; set; }
 
-        public int DecimalIntegerSize { get; set; }
+        public int? DecimalIntegerSize { get; set; }
 
-        public int DecimalFractionalSize { get; set; }
+        public int? DecimalFractionalSize { get; set; }
         #endregion
 
         #region Constructors
@@ -24,8 +23,6 @@ namespace DataLoader.Attributes
         public ColumnAttribute(int stringSize) : base()
         {
             StringSize = stringSize;
-            DecimalIntegerSize = 0;
-            DecimalFractionalSize = 0;
         }
 
         /// <summary>
@@ -35,7 +32,6 @@ namespace DataLoader.Attributes
         /// <param name="decimalFractionalSize">The fractional size of the decimal</param>
         public ColumnAttribute(int decimalIntegerSize, int decimalFractionalSize) : base()
         {
-            StringSize = 0;
             DecimalIntegerSize = decimalIntegerSize;
             DecimalFractionalSize = decimalFractionalSize;
         }
@@ -45,9 +41,7 @@ namespace DataLoader.Attributes
         /// </summary>
         public ColumnAttribute() : base()
         {
-            StringSize = default(int);
-            DecimalIntegerSize = default(int);
-            DecimalFractionalSize = default(int);
+            
         }
         #endregion
     }

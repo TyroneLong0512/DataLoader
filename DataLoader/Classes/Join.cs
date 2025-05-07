@@ -6,14 +6,14 @@ namespace DataLoader.Classes
     /// <summary>
     /// Base implementation for the IJoin interface
     /// </summary>
-    public class Join : IJoin
+    public class JoinOperators : IJoin
     {
         #region Fields
         private IEnumerable<JoinStruct> _joinCollection;
         #endregion
 
         #region Constructors
-        public Join()
+        public JoinOperators()
         {
             _joinCollection = new List<JoinStruct>();
         }

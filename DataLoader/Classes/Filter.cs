@@ -8,7 +8,7 @@ namespace DataLoader.Classes
     /// <summary>
     /// Base implementation for the IFilter interface
     /// </summary>
-    public class Filter : IFilter
+    public class FilterOperators : IFilter
     {
         #region Fields
         public IEnumerable<FilterStruct> _filters;

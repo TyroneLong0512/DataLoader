@@ -24,7 +24,7 @@
         /// </summary>
         /// <param name="inputModel">The model to create</param>
         /// <returns>Boolean</returns>
-        bool Create(IModel inputModel);
+        bool Create<TModel>(TModel inputModel) where TModel : class;
 
         /// <summary>
         /// Updates a record in the table based on the values set in the model for the primary keys

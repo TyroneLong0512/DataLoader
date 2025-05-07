@@ -14,16 +14,16 @@ namespace DataLoader.Interfaces
         /// <summary>
         /// Indicates the size of a Varchar field
         /// </summary>
-        int StringSize { get; set; }
+        int? StringSize { get; set; }
 
         /// <summary>
         /// Indicates the integer size of a decimal field
         /// </summary>
-        int DecimalIntegerSize { get; set; }
+        int? DecimalIntegerSize { get; set; }
 
         /// <summary>
         /// Indicates the fractional size of a decimal field
         /// </summary>
-        int DecimalFractionalSize { get; set; }
+        int? DecimalFractionalSize { get; set; }
     }
 }

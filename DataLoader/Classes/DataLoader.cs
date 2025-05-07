@@ -1,28 +1,31 @@
-﻿
-
+﻿using DataLoader.ColumnResolver.Interfaces;
 using DataLoader.Interfaces;
+using DataLoader.Models;
 
 namespace DataLoader.Classes
 {
     public class DataLoader : IDataLoader
     {
         #region Fields
-        private IEnumerable<IJoin> _joiners = new List<IJoin>();
-        //private IFilterCollectionFirst _firstFilter = FilterCollectionfirst;
+        private IEnumerable<IJoin> _joiners = new List<IJoin>();        
         private IEnumerable<IFilter> _filters = new List<IFilter>();
+        private ISqlColumnResolver _columnResolver;
         #endregion
 
         #region Constructors
-        public DataLoader(IConnectionProfile connectionProfile)
+        public DataLoader(IConnectionProfile connectionProfile, ISqlColumnResolver sqlColumnResolver)
         {
-
+            _columnResolver = sqlColumnResolver;
         }
         #endregion
 
         #region Public Methods
-        public bool Create(IModel inputModel)
+        public bool Create<TModel>(TModel inputModel) where TModel : class
         {
-            throw new NotImplementedException();
+            IList<SqlColumnDefinition> columns = _columnResolver.ResolveModelColumns(inputModel);
+
+
+            return false;
         }
 
         public IFirstFilter Delete(IModel inputModel)
